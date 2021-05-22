@@ -7,8 +7,8 @@ trigger:
 - master
 
 variables:
-  sln: './GloonCompiler.sln'
-  tests: './GloonCompiler.Tests/GloonCompiler.Tests.fsproj'
+  sln: './RailWayCompiler.sln'
+  tests: './src/RailWayCompiler.Tests/RailWayCompiler.Tests.fsproj'
 
 parameters:
 - name:     operatingSystems
@@ -38,10 +38,10 @@ jobs:
           command: build
           projects: $(sln)
           arguments: --configuration ${{ c }}
-      - task: DotNetCoreCLI@2
-        displayName: Run tests (${{ os.name }} ${{ c }})
-        inputs:
-          command: test
-          projects: $(tests)
-          arguments: --configuration ${{ c }}
-          publishTestResults: true
+#      - task: DotNetCoreCLI@2
+#        displayName: Run tests (${{ os.name }} ${{ c }})
+#        inputs:
+#          command: test
+#          projects: $(tests)
+#          arguments: --configuration ${{ c }}
+#          publishTestResults: true
